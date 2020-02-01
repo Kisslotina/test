@@ -19,5 +19,4 @@ exports.update_metadata = function update_metadata(metadata, public_ids, callbac
 	});
 };
 
-
-
+console.log('test....');
