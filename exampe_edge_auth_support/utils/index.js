@@ -704,7 +704,9 @@ function url(public_id, options = {}) {
     return (part != null) && part !== '';
   }).join('/').replace(' ', '%20');
   if (sign_url && !isEmpty(auth_token)) {
-    auth_token.url = urlParse(resultUrl).path;
+    if (isEmpty(auth_token.acl)) {
+      auth_token.url = urlParse(resultUrl).path;
+    }
     let token = generate_token(auth_token);
     resultUrl += `?${token}`;
   }
